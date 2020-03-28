@@ -22,6 +22,43 @@ if [[ ${DC_OS} = "macos" ]]; then
 	fi
 fi
 
+if [[ ${DC_OS} = "ubuntu" ]]; then
+  sudo apt-get update
+fi
+
+if [[ -z $(command -v brew) ]]; then
+	yes | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+	if [[ ${DC_OS} = "ubuntu" ]]; then
+		sudo apt-get install build-essential linuxbrew-wrapper -y
+		echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ${HOME}/.profile
+		eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+	fi
+else
+  brew update
+fi
+
+if [[ -z $(command -v git) ]]; then
+  brew install git
+fi
+
+if [[ ! -d "${HOME}/.shh" ]]; then
+  mkdir "${HOME}/.shh"
+fi
+
+if [[ ! -f "${HOME}/.shh/id_rsa" ]]; then
+  ssh-keygen -t rsa -b 4096 -f "${HOME}/.shh/id_rsa" -N '' > /dev/null 2>&1
+
+  echo ""
+  echo "!!! Insert the following public ssh key in you Gitlab account [https://gitlab.com/profile/keys] !!!"
+
+  echo ""
+  cat "${HOME}/.shh/id_rsa.pub"
+  echo ""
+
+  read -n 1 -s -r -p "Press any key to continue"
+fi
+
 if [[ ! -d "${HOME}"/developer-companion ]]; then
   git clone git@gitlab.com:7graus/developer-companion.git "${HOME}"/developer-companion
 fi
