@@ -42,18 +42,18 @@ if [[ -z $(command -v git) ]]; then
   brew install git
 fi
 
-if [[ ! -d "${HOME}/.shh" ]]; then
-  mkdir "${HOME}/.shh"
+if [[ ! -d "${HOME}/.ssh" ]]; then
+  mkdir "${HOME}/.ssh"
 fi
 
-if [[ ! -f "${HOME}/.shh/id_rsa" ]]; then
-  ssh-keygen -t rsa -b 4096 -f "${HOME}/.shh/id_rsa" -N '' > /dev/null 2>&1
+if [[ ! -f "${HOME}/.ssh/id_rsa" ]]; then
+  ssh-keygen -t rsa -b 4096 -f "${HOME}/.ssh/id_rsa" -N '' > /dev/null 2>&1
 
   echo ""
   echo "!!! Insert the following public ssh key in you Gitlab account [https://gitlab.com/profile/keys] !!!"
 
   echo ""
-  cat "${HOME}/.shh/id_rsa.pub"
+  cat "${HOME}/.ssh/id_rsa.pub"
   echo ""
 
   read -n 1 -s -r -p "Press any key to continue"
