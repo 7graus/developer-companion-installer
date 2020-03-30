@@ -61,6 +61,8 @@ fi
 
 if [[ ! -d "${HOME}"/developer-companion ]]; then
   git clone git@gitlab.com:7graus/developer-companion.git "${HOME}"/developer-companion
+else
+  git -C "${HOME}"/developer-companion pull
 fi
 
 bash "${HOME}"/developer-companion/install.sh
