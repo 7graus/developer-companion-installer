@@ -65,4 +65,14 @@ else
   git -C "${HOME}"/developer-companion pull
 fi
 
+if [[ ! -d "${HOME}"/Vagrant ]]; then
+  git clone git@gitlab.com:7graus/operations/vagrant.git "${HOME}"/Vagrant
+else
+  git -C "${HOME}"/Vagrant pull
+fi
+
+if [[ ! -d "${HOME}"/Sites ]]; then
+  mkdir "${HOME}"/Sites
+fi
+
 bash "${HOME}"/developer-companion/install.sh
