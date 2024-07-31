@@ -67,6 +67,7 @@ fi
 
 if [[ ! -d "${HOME}"/Vagrant ]]; then
   git clone git@gitlab.com:7graus/operations/vagrant.git "${HOME}"/Vagrant
+  ln -sf ~/Vagrant/external/.ssh/config ~/.ssh/config
 else
   git -C "${HOME}"/Vagrant pull
 fi
