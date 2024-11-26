@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 if [[ "${UID}" == "0" ]]; then
 	echo "Don't run this as root!"
   exit 1
