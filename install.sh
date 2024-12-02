@@ -27,7 +27,7 @@ if [[ ${DC_OS} = "ubuntu" ]]; then
 fi
 
 if [[ -z $(command -v brew) ]]; then
-	yes | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	if [[ ${DC_OS} = "ubuntu" ]]; then
 		sudo apt-get install build-essential linuxbrew-wrapper -y
