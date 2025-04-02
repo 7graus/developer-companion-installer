@@ -48,18 +48,18 @@ mkdir "${HOME}/.ssh/socket"
 mkdir "${HOME}/backup-vagrant-dc"
 
 if [[ ! -d "${HOME}"/developer-companion ]]; then
-  git clone git@gitlab.com:7graus/developer-companion.git "${HOME}"/developer-companion
+  git clone git@github.com:7graus/developer-companion.git "${HOME}"/developer-companion
 else
   mv "${HOME}"/developer-companion "${HOME}/backup-vagrant-dc/"
-  git clone git@gitlab.com:7graus/developer-companion.git "${HOME}"/developer-companion
+  git clone git@github.com:7graus/developer-companion.git "${HOME}"/developer-companion
 fi
 
 if [[ ! -d "${HOME}"/Vagrant ]]; then
-  git clone git@gitlab.com:7graus/operations/vagrant.git "${HOME}"/Vagrant
+  git clone git@github.com:7graus/operations-vagrant.git "${HOME}"/Vagrant
   ln -sf ~/Vagrant/external/.ssh/config ~/.ssh/config
 else  
   mv "${HOME}"/Vagrant "${HOME}/backup-vagrant-dc/"
-  git clone git@gitlab.com:7graus/operations/vagrant.git "${HOME}"/Vagrant
+  git clone git@github.com:7graus/operations-vagrant.git "${HOME}"/Vagrant
   ln -sf ~/Vagrant/external/.ssh/config ~/.ssh/config  
 fi
 
