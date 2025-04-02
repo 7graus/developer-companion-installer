@@ -50,7 +50,7 @@ if [[ ! -f "${HOME}/.ssh/id_rsa" ]]; then
   ssh-keygen -t rsa -b 4096 -f "${HOME}/.ssh/id_rsa" -N '' > /dev/null 2>&1
 
   echo ""
-  echo "!!! Insert the following public ssh key in you Gitlab account [https://gitlab.com/profile/keys] !!!"
+  echo "!!! Insert the following public ssh key in you GitHub account [https://github.com/settings/keys] !!!"
 
   echo ""
   cat "${HOME}/.ssh/id_rsa.pub"
@@ -60,13 +60,13 @@ if [[ ! -f "${HOME}/.ssh/id_rsa" ]]; then
 fi
 
 if [[ ! -d "${HOME}"/developer-companion ]]; then
-  git clone git@gitlab.com:7graus/developer-companion.git "${HOME}"/developer-companion
+  git clone git@github.com:7graus/developer-companion.git "${HOME}"/developer-companion
 else
   git -C "${HOME}"/developer-companion pull
 fi
 
 if [[ ! -d "${HOME}"/Vagrant ]]; then
-  git clone git@gitlab.com:7graus/operations/vagrant.git "${HOME}"/Vagrant
+  git clone git@github.com:7graus/operations-vagrant.git "${HOME}"/Vagrant
   ln -sf ~/Vagrant/external/.ssh/config ~/.ssh/config
 else
   git -C "${HOME}"/Vagrant pull
